@@ -32,7 +32,7 @@ console.log('articleSelector:;' 'href'));
 }
   /* find the correct article using the selector (value of 'href' attribute) */
 
-const targetArticle = document.querySelector()
+const targetArticle = document.querySelector('href');
 console.log('targetArticle': );
 
 )
