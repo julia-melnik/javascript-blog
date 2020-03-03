@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext");
+
 /* Variables */
 /* Global */
 *, *::before, *::after {
@@ -7,13 +7,17 @@
 
 body {
   background: #fff;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Cuprum", cursive;
   color: #444;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
 }
 
+a { 
+color: #444;
+text-decoration:none;
+}
 .container {
   max-width: 1140px;
   margin: 0 auto;
@@ -59,11 +63,13 @@ body {
 
 /* Logo */
 .logo {
-  font-family: "Sacramento", cursive;
+  font-family: "Cuprum", cursive;
   font-size: 104px;
   line-height: 1;
   text-align: center;
   font-weight: normal;
+  margin-top: 30px;
+  margin-bottom: 0;
 }
 
 .sublogo {
@@ -72,29 +78,37 @@ body {
   text-align: center;
 }
 
+.menu-nav::before {
+  position: absolute;
+    content: '';
+    
+    top:20px;
+  width: 100vw;
+    height: 2px;
+    
+      background: black;
+}
 .menu-nav {
   list-style-type: none;
-  margin: 0;
-  padding: 0 170px;
+  margin: 20;
+  padding: 30px 200px;
   overflow: hidden;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
+  font-weight:bold;
+  float:center;
+  color:black;
+  justify-content:center;
+width: 100%;
 }
 
 .menu-nav::after {
   position: absolute;
-  content: '';
-  bottom: -20px;
-  left: 50%;
-  width: 900px;
-  height: 5px;
-  transform: translateX(-50%);
-  background: black;
-}
-
-.home {
-  color: darkred;
+    content: '';
+    bottom: 20px;
+  width: 100vw;
+    height: 2px;
+     background: black;
 }
 
 .menu-nav-item {
@@ -102,7 +116,7 @@ body {
   font-size: 14px;
   letter-spacing: 1px;
   padding: 15px 20px;
-  float: center;
+  justify-content: center; /*nie dziala */
   display: block;
   width: 120px;
 }
@@ -118,6 +132,10 @@ a .item-link {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  font-family: "Cuprum", cursive;
+  font-weight: 300;
+  font-size: 16px;
+  
 }
 
 .list .active {
@@ -144,6 +162,7 @@ a .item-link {
 
 .post-author {
   font-style: italic;
+
 }
 
 .post-tags {
@@ -154,4 +173,36 @@ a .item-link {
 .post-tags p {
   margin: 0 10px 0 0;
 }
-/*# sourceMappingURL=style.css.map */
+@media (max-width: 767px) {
+body {
+    font-size: 12px;
+    margin:0;
+}    
+.logo {
+    font-size:24px;
+}
+.menu-nav {
+       padding:12px 0;
+       font-size: 16px;
+flex-wrap: wrap;
+    }
+.sidebar, .posts {
+    margin-right:5px;
+    padding:5px;
+    }
+    .section-title {
+         font-size: 14px;
+        }
+        
+        .author-name{
+            line-height: normal;
+            font-weight:normal;
+            }
+        
+
+
+
+
+}
+ 
+

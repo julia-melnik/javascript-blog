@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext');
 
 /* Variables */
 
 $color-light: #fff;
 $color-dark: #444;
-
-$font-logo: 'Sacramento', cursive;
-$font-header: 'Oswald', sans-serif;
 $font-text: 'Source Sans Pro', sans-serif;
+$font-family: 'Cuprum';
 
 /* Global */
 
@@ -67,7 +64,7 @@ body {
 /* Logo */
 
 .logo {
-  font-family: $font-logo;
+
   font-size: 104px;
   line-height: 1;
   text-align: center;
@@ -78,17 +75,19 @@ body {
   font-weight: 150;
   font-size: 23px;
   text-align: center;
+  font-family: $font-family;
   }
 
 .menu-nav {
+  font-family: $font-family;
+  color: $color-dark;
   list-style-type: none;
   margin: 0;
   padding: 0 170px;
   overflow: hidden;
   display: flex;
   position:relative;
-}
-.menu-nav::after {
+  .menu-nav::after {
     position: absolute;
     content: '';
     bottom: -20px;
@@ -96,7 +95,9 @@ body {
     width: 900px;
     height: 5px;
     transform: translateX(-50%);
-    background:black;}
+    background:black;
+  }
+}
 
 .home  {
   color:darkred;
