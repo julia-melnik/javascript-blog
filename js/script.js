@@ -46,8 +46,6 @@ function generateTitleLinks() {
   let html = ''; /* O co chodzi??? */
   for (let article of articles) {
 
-    console.log(article);
-
     /* [DONE] get the article id */
     const articleId = clickedElement.getAttribute('id');
 
