@@ -37,6 +37,7 @@ const optArticleSelector = '.post',
   optTitleListSelector = '.titles';
 
 
+
 function generateTitleLinks() {
   /*  [DONE]  remove contents of titleList */
   const titleList = document.querySelector(optTitleListSelector);
@@ -49,6 +50,7 @@ function generateTitleLinks() {
   for (let article of articles) {
 
     /* [DONE] get the article id */
+    const clickedElement = this;
     const articleId = clickedElement.getAttribute('id');
 
     /* [DONE] find the title element */ /*   get the title from the title element */
