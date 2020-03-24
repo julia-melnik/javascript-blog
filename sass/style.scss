@@ -5,6 +5,11 @@ $color-light: #fff;
 $color-dark: #444;
 $font-text: 'Source Sans Pro', sans-serif;
 $font-family: 'Cuprum';
+$tag-fs1: 100%;
+$tag-fs2: 110%;
+$tag-fs3: 120%;
+$tag-fs4: 130%;
+$tag-fs5: 140%;
 
 /* Global */
 
@@ -138,14 +143,13 @@ body {
 }
 
 /* Authors */
-
 .authors {
   li {
     margin-bottom: 12px;
   }
 }
 
-/* Post */
+/* Post  */
 
 .post {
   display: none;
@@ -163,4 +167,30 @@ body {
   p {
     margin: 0 10px 0 0;
   }
+}
+/* Tags */
+
+.tags li {
+  display: inline-block;
+  line-height: normal;
+}
+
+.tag-size-1 {
+  font-size: $tag-fs1;
+}
+
+.tag-size-2 {
+  font-size: $tag-fs2;
+}
+
+.tag-size-3 {
+  font-size: $tag-fs3;
+}
+
+.tag-size-4 {
+  font-size: $tag-fs4;
+}
+
+.tag-size-5 {
+  font-size: $tag-fs5;
 }
