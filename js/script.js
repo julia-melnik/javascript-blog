@@ -8,7 +8,7 @@ const templates = {
   authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
   tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
   authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML),
-}
+};
 
 const opt = {
   articleSelector: '.post',
@@ -163,7 +163,7 @@ function generateTags() {
     const articleTags = article.getAttribute('data-tags');
 
     /* split tags into array */
-    const articleTagsArray = articleTags.split('  ');
+    const articleTagsArray = articleTags.split(' ');
     console.log(articleTagsArray);
 
     /* START LOOP: for each tag */
@@ -182,6 +182,7 @@ function generateTags() {
       console.log(html);
 
       /* [NEW] check if this link is NOT already in allTags */
+      // eslint-disable-next-line no-prototype-builtins
       if (!allTags.hasOwnProperty(tag)) {
         /* [NEW] add tag to allTags object */
         allTags[tag] = 1;
@@ -214,7 +215,7 @@ function generateTags() {
   /*[NEW] Start loop: for each tag in allTags: */
   for (let tag in allTags) {
 
-    const tagLinkHTML = '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + ' (' + allTags[tag] + ')</a></li>';
+    // const tagLinkHTML = '<li><a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + ' (' + allTags[tag] + ')</a></li>';
 
     // /*[NEW] generate code of a link and add it to allTagsHTML */
     // allTagsHTML += tagLinkHTML;
@@ -236,14 +237,15 @@ function tagClickHandler(event) {
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
   const clickedElement = this;
+  console.log('clickedElement:', clickedElement);
   /* make a new constant "href" and read the attribute "href" of the clicked element  */
-  const href = clickedElement.getAttribute('a.active[href^="#tag-"]');
+  const href = this.getAttribute('href');
 
   /* make a new constant "tag" and extract tag from the "href" constant */
   const tag = href.replace('#tag-', '');
 
   /* find all tag links with class active */
-  const tagLinks = document.querySelectorAll('.active');
+  const tagLinks = document.querySelectorAll('.a.active[href^="#tag-"]');
 
   /* START LOOP: for each active tag link */
   for (let tagLink of tagLinks) {
@@ -253,7 +255,7 @@ function tagClickHandler(event) {
     /* END LOOP: for each active tag link */
   }
   /* find all tag links with "href" attribute equal to the "href" constant */
-  const hrefTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+  const hrefTagLinks = document.querySelectorAll('a[href="' + href + '"]');
 
   /* START LOOP: for each found tag link */
   for (let hrefTagLink of hrefTagLinks) {
@@ -271,13 +273,13 @@ function tagClickHandler(event) {
 function addClickListenersToTags() {
 
   /* find all links to tags */
-  const links = document.querySelectorAll('.post-tags .list a');
+  const links = document.querySelectorAll('.post-tags .list a, .list.tags a');
 
   /* START LOOP: for each link */
   for (let link of links) {
 
     /* add tagClickHandler as event listener for that link */
-    link.addEventListener('click', titleClickHandler);
+    link.addEventListener('click', tagClickHandler);
     /* END LOOP: for each link */
   }
 
@@ -317,6 +319,7 @@ function generateAuthors() {
     html = html + linkHTML;
 
     /* [NEW] check if this link is NOT already in allAuthors */
+    // eslint-disable-next-line no-prototype-builtins
     if (!allAuthors.hasOwnProperty(articleAuthor)) {
 
       /* [NEW] add author to allAuthors object */
@@ -369,6 +372,7 @@ function authorClickHandler(event) {
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
   const clickedElement = this;
+  console.log('clickedElement:', clickedElement);
   /* make a new constant "href" and read the attribute "href" of the clicked element  */
   const href = this.getAttribute('href');
 
