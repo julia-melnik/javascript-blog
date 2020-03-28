@@ -30,7 +30,6 @@
             "off"
         ]
     },
-    
     "globals": {
         "Handlebars": true
     }
